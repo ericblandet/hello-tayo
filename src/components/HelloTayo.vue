@@ -1,11 +1,23 @@
 <template>
-  <h2>🙂 Click to toggle color 🙃</h2>
+  <h2 @click="toggle" v-bind:class="{ active: isActive }">
+    🙂 Click to toggle color 🙃
+  </h2>
 </template>
 
 <script>
 export default {
   name: "HelloTayo",
-  setup() {},
+  data() {
+    return {
+      isActive: false,
+    };
+  },
+  methods: {
+    toggle() {
+      this.isActive = !this.isActive;
+      console.log(this.isActive);
+    },
+  },
 };
 </script>
 
@@ -15,5 +27,10 @@ h2 {
   padding: 10px 15px;
   display: inline-block;
   border-radius: 2px;
+}
+
+.active {
+  color: #ffcc00;
+  background-color: black;
 }
 </style>
