@@ -1,7 +1,13 @@
 <template>
-  <h2 @click="toggle" v-bind:style="{ backgroundColor: activeBackgroundColor, color: activeColor }">
+  <div
+    @click="toggle"
+    v-bind:style="{
+      backgroundColor: activeBackgroundColor,
+      color: activeColor,
+    }"
+  >
     🙂 Click to toggle color 🙃
-  </h2>
+  </div>
 </template>
 
 <script>
@@ -9,21 +15,23 @@ export default {
   name: "HelloTayo",
   data() {
     return {
-      activeBackgroundColor: '#ffcc00',
-      activeColor: 'black',
-    }
+      activeBackgroundColor: "#ffcc00",
+      activeColor: "black",
+    };
   },
   methods: {
     toggle() {
-      this.activeBackgroundColor = (this.activeBackgroundColor === 'black') ? '#ffcc00' : 'black'
-      this.activeColor = (this.activeColor === 'black') ? '#ffcc00' : 'black'
-        }
+      this.activeBackgroundColor =
+        this.activeBackgroundColor === "black" ? "#ffcc00" : "black";
+      this.activeColor = this.activeColor === "black" ? "#ffcc00" : "black";
+      this.$store.commit("toggle");
     },
-  };
+  },
+};
 </script>
 
 <style scoped>
-h2 {
+div {
   -color: #ffcc00;
   padding: 10px 15px;
   display: inline-block;
