@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/hello-tayo/precache-manifest.57bab521074bc99bdc6924cb1243db29.js"
+  "/precache-manifest.f9c02fd7a2723e399af94239e8f1cac1.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "hello-tayo"});
