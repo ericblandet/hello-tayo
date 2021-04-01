@@ -1,12 +1,14 @@
 <template>
-  <div
-    @click="toggle"
-    v-bind:style="{
-      backgroundColor: activeBackgroundColor,
-      color: activeColor,
-    }"
-  >
-    🙂 Click to toggle color 🙃
+  <div>
+    <div
+      @click="toggle"
+      v-bind:style="{
+        backgroundColor: activeBackgroundColor,
+        color: activeColor,
+      }"
+    >
+      🙂 Click to toggle color 🙃
+    </div>
   </div>
 </template>
 
@@ -15,16 +17,15 @@ export default {
   name: "HelloTayo",
   data() {
     return {
-      activeBackgroundColor: "#ffcc00",
-      activeColor: "black",
+      activeBackgroundColor: this.$store.state.activeBackgroundColor,
+      activeColor: this.$store.state.activeColor,
     };
   },
   methods: {
     toggle() {
-      this.activeBackgroundColor =
-        this.activeBackgroundColor === "black" ? "#ffcc00" : "black";
-      this.activeColor = this.activeColor === "black" ? "#ffcc00" : "black";
       this.$store.commit("toggle");
+      this.activeBackgroundColor = this.$store.state.activeBackgroundColor;
+      this.activeColor = this.$store.state.activeColor;
     },
   },
 };
@@ -32,14 +33,9 @@ export default {
 
 <style scoped>
 div {
-  -color: #ffcc00;
   padding: 10px 15px;
   display: inline-block;
   border-radius: 2px;
-}
-
-.active {
-  color: #ffcc00;
-  background-color: black;
+  cursor: pointer;
 }
 </style>
