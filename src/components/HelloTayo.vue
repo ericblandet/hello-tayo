@@ -3,8 +3,8 @@
     <div
       @click="toggle"
       v-bind:style="{
-        backgroundColor: activeBackgroundColor,
-        color: activeColor,
+        backgroundColor: $store.state.activeBackgroundColor,
+        color: this.$store.state.activeColor,
       }"
     >
       🙂 Click to toggle color 🙃
@@ -17,8 +17,8 @@ export default {
   name: "HelloTayo",
   data() {
     return {
-      activeBackgroundColor: this.$store.state.activeBackgroundColor,
-      activeColor: this.$store.state.activeColor,
+      activeBackgroundColor: "black",
+      activeColor: "#ffcc00",
     };
   },
   methods: {
